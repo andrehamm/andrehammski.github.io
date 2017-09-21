@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Ski Gallery</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href=style.css type=text/css rel=stylesheet>
+
+</head>
+
+<body>
+  
+  <div class=header>
+    <div id=header-text> 
+      <h1 id=title>Ski Gallery</h1>
+        <h2 id=description>Pictures of Andre Skiing</h2>
+    </div>
+  </div>
+
+  <div class=gallery>
+    <div class=gallerybox>  
+    <div class=pictures>
+      <img src="IMG_3327.JPG" onclick="openModal(); currentSlide(1);">
+      <h3>Skiing</h3>
+      <p>picture</p>
+    </div>
+        
+    <div class=pictures>
+      <img src="IMG_3331.JPG" onclick="openModal(); currentSlide(2);">
+      <h3>Skiing</h3>
+      <p>picture</p>
+    </div>    
+        
+    <div class=pictures>
+      <img src="IMG_3338.JPG" onclick="openModal(); currentSlide(3);">
+      <h3>Skiing</h3>
+      <p>picture</p>
+    </div>   
+    
+    <div class=pictures>
+      <img src="IMG_3378.JPG" onclick="openModal(); currentSlide(4);">
+      <h3>Skiing</h3>
+      <p>picture</p>
+    </div>    
+    
+    <div class=pictures>
+      <img src="IMG_3409.JPG" onclick="openModal(); currentSlide(5);">
+      <h3>Skiing</h3>
+      <p>picture</p>
+    </div>
+    
+  </div>
+
+  </div>
+        
+  <div id="myModal" class="modal">
+      <span class="close cursor" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+      
+        <div class="mySlides">
+          <img src="IMG_3327.JPG">
+        </div> 
+          
+        <div class="mySlides">
+          <img src="IMG_3331.JPG">
+        </div>   
+      
+        <div class="mySlides">
+          <img src="IMG_3338.JPG">
+        </div>   
+          
+        <div class="mySlides">
+          <img src="IMG_3378.JPG">
+        </div>   
+        
+        <div class="mySlides">
+          <img src="IMG_3409.JPG">
+        </div>   
+          
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>  
+          
+      </div>
+    </div>
+    
+    <script>
+        function openModal(){
+            document.getElementById("myModal").style.display="block";
+        }
+        
+        function closeModal() {
+            document.getElementById('myModal').style.display="none";
+        }
+        
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n){
+            showSlides(slideIndex+=n);
+        }
+        
+        function currentSlide(n){
+            showSlides(slideIndex=n);
+        }
+        
+        function showSlides(n){
+            let slides = document.getElementsByClassName("mySlides");
+            
+            if (n>slides.length){slideIndex=1}
+            
+            if (n<1) {slideIndex=slides.length}
+            
+            for (let i =0; i<slides.length; i++) {slides[i].style.display="none"
+            }
+            
+            slides[slideIndex-1].style.display="block";
+        }
+    </script>
+
+</body>
+
+</html>

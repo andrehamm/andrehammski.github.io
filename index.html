@@ -1,0 +1,159 @@
+<!DOCTYPE html> 
+
+<html>
+
+<head>
+    <title> Andre Hamm </title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+
+<body>
+    
+    <div class="header">
+        <img id="headshot" src=Head.jpg>
+        <h1 id="title">Andre Hamm</h1>
+    </div>
+    
+    <div class="menu" id="menu">
+    <div class="buttons">
+      <ul>
+        <li id="aboutButton" onclick="menuSelect(1)">About</li>
+        <li id="blogButton" onclick="menuSelect(2)">Blog</li>  
+        <li id="picButton" onclick="menuSelect(3)">Pictures</li>
+        <li id="editsButton" onclick="menuSelect(4)">Edits</li>
+        <li id="socialButton" onclick="menuSelect(5)">Social Media </li>
+        <li id="resultsButton" onclick="menuSelect(6)">Results </li>
+      </ul>
+    </div> 
+  </div>
+    
+  <div class="sections"> 
+    <div class="about sec">
+        <h3>About</h3>
+        <p>Andre Hamm is a Costa Rican Slopestyle skier and 2018 Winter Olympic Hopeful. He grew up in Boulder, Colorado with an American father and a Costa Rican mother. He spent his childhood exploring the surrounding Rocky Mountains and makin yearly trips to Costa Rica to play in the ocean and visit his family. Andre started competing in slopestyle skiing when he was 14, after many years of skiing around with his friends. He quickly fell in love with the sport and is now competing at World Cups in hopes of qualifying for the Olympics. He is currently recovering from a concussion and getting ready for the final olympic push!</p>
+    </div>
+      
+    <div class="blog sec">
+        <h3>Blog</h3>
+        <p>Andre's greatest passion in life is spending time in the outdoors and sending big adventures. Here is a spot where he will fill you in on all of the exciting trips and things going on in his life. Or just a random thought, anything is possible.</p>
+      </div>  
+    
+    <div class="pictures sec">
+        <h3 id="picHead">Pictures</h3>
+        <div class="gallery">
+            <div class="ski">
+                <a href="Ski-Pics/skiGallery.html" target="_blank"><img id="skiHead" src="Ski-Pics/IMG_3327.JPG"></a>
+            <p>SKI PICTURES</p>
+            </div>
+            
+            <div class="art">
+                <a href="Art-pics/artGallery.html" target="_blank"><img id="artHead" src="Art-pics/DSC04473.jpg"></a>
+                <p>PERSONAL PICTURES</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="edits sec">
+        <h3>Edits</h3>
+        <p>A few video compilations showcasing Andre's skiing.</p>
+        <div class="slideFrame">
+            <button class="prev slider" onclick="plusSlides(-1)">&#10094;</button>
+            <iframe src="https://player.vimeo.com/video/171124011" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="edit" id="edit1" ></iframe>
+            <iframe src="https://player.vimeo.com/video/223851254" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="edit" id="edit2"></iframe> 
+            <iframe src="https://player.vimeo.com/video/218897074" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="edit" id="edit3"></iframe> 
+            <button class="next slider" onclick="plusSlides(1)">&#10095;</button>
+        </div>
+    </div>
+    
+    <div class="social-media sec">
+        <h3>Social Media</h3>
+        <a href=https://www.instagram.com/andrehamm/ target = _blank> <img src="INSTAGRAM.png"> </a>
+        <a href=https://www.facebook.com/CRCfreeskier/ target = _blank><img src="FACEBOOK.png"> </a>
+    </div>
+    
+    <div class="results sec">
+        <h3>Results</h3>
+        <p>I have done some competitions in the past and done ok at them. I won some small ones and did some real big ones including the World Champs!!! Link to my FIS results page</p>
+        <a href="https://data.fis-ski.com/dynamic/athlete-biography.html?sector=FS&competitorid=184459&type=result" target="_blank"><img src="WOjJb7sh.jpg"></a>
+    </div>
+      
+    <div class="footer">
+        <h3>Design by Andre Hamm</h3>
+    </div>  
+  </div>      
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script>
+        
+        let menuIndex = 1;
+        menuFunction(menuIndex);
+        
+        function menuSelect(n) {
+            menuFunction(menuIndex = n);
+        };
+        
+        function menuFunction(n) {
+            let menuItems = document.getElementsByClassName("sec");
+            
+            for (let i=0; i<menuItems.length; i++) {
+         menuItems[i].style.display="none";
+            }
+            
+            menuItems[menuIndex-1].style.display="block";
+            
+            console.log(menuIndex);
+            
+        }; 
+        
+        
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        };
+        
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("edit");
+            
+            if (n > slides.length) {slideIndex=1}
+            
+            if (n < 1) {slideIndex=slides.length}
+            
+            for (i=0; i<slides.length; i++) {
+            slides[i].style.display="none";
+            }
+            
+            slides[slideIndex-1].style.display = "block";
+            
+            console.log(slideIndex);
+            
+            };
+        
+    </script>    
+    
+    <script>
+    jQuery("document").ready(function($) {
+        let menu = $('.menu');
+        
+        $(window).scroll(function(){
+            if($(this).scrollTop()>330){
+                menu.addClass("f-menu");
+            }
+            else {
+                menu.removeClass("f-menu");
+            }
+        });
+    });
+    </script>
+    
+</body> 
+
+</html>
